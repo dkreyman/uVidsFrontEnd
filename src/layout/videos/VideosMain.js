@@ -20,11 +20,7 @@ function VideosMain() {
     const loadVideos = () => {
       const abortController = new AbortController();
       fetchVideos(abortController.signal)
-        .then((res) => {
-          setVideos(res);
-          setPlayingVideo(res["response"][0]);
-          return videos;
-        })
+        .then(setVideos)
         .catch((err) => console.error("error:" + err));
       return () => {
         abortController.abort();
@@ -33,6 +29,11 @@ function VideosMain() {
     loadVideos();
   }, []);
 
+  useEffect(() => {
+    if (videos !== undefined) {
+      setPlayingVideo(videos["response"][0]);
+    }
+  }, [videos]);
   return (
     <div>
       <nav class="navbar navbar-light">
@@ -48,7 +49,7 @@ function VideosMain() {
         </div>
         <div className="row ">
           <div className="col">
-            <AllVideosCarousel videos={videos} />
+            {videos ? <AllVideosCarousel videos={videos} /> : null}
           </div>
         </div>
         <div className="row ">
