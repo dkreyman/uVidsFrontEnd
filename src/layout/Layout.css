@@ -1,0 +1,51 @@
+body {
+  background-color: #191919;
+  color: white;
+}
+nav {
+  background-color: #212121;
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
+}
+.gray {
+  border: 1px solid gray;
+  color: gray;
+}
+
+.item {
+  height: 8rem;
+  width: 100%;
+  object-fit: cover;
+}
+
+.owl-prev {
+  left: -30px;
+}
+
+.owl-next {
+  right: -30px;
+}
+
+.owl-prev,
+.owl-next {
+  position: absolute;
+  top: 35px;
+}
+
+.owl-prev span,
+.owl-next span {
+  font-size: 30px;
+  color: white;
+}
+.owl-theme .owl-nav [class*="owl-"]:hover {
+  background-color: transparent;
+}
+
+.carousel-wrap {
+  width: 96%;
+  margin: auto;
+  position: relative;
+}
+
+.owl-dots {
+  display: none;
+}

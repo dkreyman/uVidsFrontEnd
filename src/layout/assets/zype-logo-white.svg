@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 1025 126.6" style="enable-background:new 0 0 1025 126.6;" xmlns="http://www.w3.org/2000/svg">
+  <style type="text/css">
+	.st0{fill:#000101;}
+</style>
+  <path class="st0" d="M409.6,28.7l-92.4,69.1h92.4v26.2H272.5V97.8l92.2-69.1h-92.2V2.5h137.2V28.7z" style="fill: rgb(255, 255, 255);"/>
+  <path class="st0" d="M443.7,2.5h37.7l46.7,55.4l46.7-55.4h37.7l-68.8,81.6v39.9h-31.3V84.1L443.7,2.5z" style="fill: rgb(255, 255, 255);"/>
+  <path class="st0" d="M788.5,47.1c0,27.1-18.9,44.5-46.5,44.5h-64.3v32.5h-31.3V2.5H742C769.6,2.5,788.5,20,788.5,47.1z M757.3,47.1 c0-18.4-14.6-18.4-24-18.4h-55.5v36.6h55.6C742.7,65.4,757.3,65.4,757.3,47.1z" style="fill: rgb(255, 255, 255);"/>
+  <path class="st0" d="M853.8,27.3V52h97.2v22.6h-97.2v24.7h97.2v24.8H822.6V2.5h128.5v24.8H853.8z" style="fill: rgb(255, 255, 255);"/>
+  <path class="st0" d="M198.9,19.9v92.6H74.8L56,126.6h157V9.4L198.9,19.9z M156.8,0H0v117.2l14.1-10.5V14.1h123.9L156.8,0z" style="fill: rgb(255, 255, 255);"/>
+</svg>
