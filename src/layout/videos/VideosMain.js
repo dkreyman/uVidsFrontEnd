@@ -15,7 +15,7 @@ import { fetchVideos } from "../utils/api";
 
 function VideosMain() {
   const [videos, setVideos] = useState(0);
-  const [favoriteVideos, setFavoriteVideos] = useState(0);
+  const [favoriteVideos, setFavoriteVideos] = useState();
   const [playingVideo, setPlayingVideo] = useState(0);
 
   useEffect(() => {
@@ -36,6 +36,14 @@ function VideosMain() {
       setPlayingVideo(videos["response"][0]);
     }
   }, [videos]);
+
+  function updateFavoriteVids(newVid) {
+    setFavoriteVideos([...favoriteVideos, newVid]);
+  }
+  function updatePlayingVid(vid) {
+    setPlayingVideo(vid);
+  }
+
   return (
     <div>
       <nav class="navbar navbar-light">
@@ -51,17 +59,22 @@ function VideosMain() {
         </div>
         <div className="row ">
           <div className="col">
-            {videos !== 0 && <AllVideosCarousel videos={videos} />}
+            {videos !== 0 && (
+              <AllVideosCarousel
+                updatePlayingVid={updatePlayingVid}
+                videos={videos}
+              />
+            )}
           </div>
         </div>
         <div className="row ">
           <div className="col">
-            {
+            {videos !== 0 && (
               <MyFavoritesCarousel
                 favoriteVideos={favoriteVideos}
-                setPlayingVideo={setPlayingVideo}
+                updateFavoriteVids={updateFavoriteVids}
               />
-            }
+            )}
           </div>
         </div>
       </div>

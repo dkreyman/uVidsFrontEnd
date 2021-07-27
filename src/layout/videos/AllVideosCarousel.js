@@ -18,21 +18,12 @@ function AllVideosCarousel(props) {
     slidesToShow: 4,
     slidesToScroll: 2,
   };
-  const arr = [
-    "https://picsum.photos/640/480?pic=2",
-    "https://picsum.photos/640/480?pic=3",
-    "https://picsum.photos/640/480?pic=4",
-    "https://picsum.photos/640/480?pic=5",
-    "https://picsum.photos/640/480?pic=2",
-    "https://picsum.photos/640/480?pic=3",
-    "https://picsum.photos/640/480?pic=4",
-    "https://picsum.photos/640/480?pic=5",
-  ];
+
   const imgs = props.videos.response.map((res) => {
     return res.thumbnails[0]["url"];
   });
-  const makePlaying = (e) => {
-    console.log(props);
+  const makePlaying = (img) => {
+    props.updatePlayingVid(img);
   };
   return (
     <div class="container carousel-wrap">
@@ -40,11 +31,11 @@ function AllVideosCarousel(props) {
         <p className="mb-0 border-bottom">All Videos</p>
       </div>
       <Slider {...settings}>
-        {imgs.map((res) => {
+        {imgs.map((res, i) => {
           return (
             <div className="p-1">
               <img
-                onClick={() => makePlaying(res)}
+                onClick={() => makePlaying(props.videos.response[i])}
                 width="260px"
                 height="150px"
                 length="100px"

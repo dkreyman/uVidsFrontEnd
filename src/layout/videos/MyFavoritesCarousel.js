@@ -11,7 +11,7 @@ import Slider from "react-slick";
  * @returns {JSX.Element}
  */
 function MyFavoritesCarousel(props) {
-  if (props.favoriteVideos === 0) {
+  if (props.favoriteVideos === undefined) {
     return (
       <div class="container carousel-wrap">
         <div className="mt-3 mb-3 ">
@@ -38,7 +38,7 @@ function MyFavoritesCarousel(props) {
     "https://picsum.photos/640/480?pic=4",
     "https://picsum.photos/640/480?pic=5",
   ];
-  const imgs = props.videos.response.map((res) => {
+  const imgs = props.favoriteVideos.response.map((res) => {
     return res.thumbnails[0]["url"];
   });
   console.log(imgs);
