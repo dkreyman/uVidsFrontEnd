@@ -11,41 +11,20 @@ nav {
   color: gray;
 }
 
-.item {
-  height: 8rem;
-  width: 100%;
-  object-fit: cover;
-}
-
-.owl-prev {
-  left: -30px;
-}
-
-.owl-next {
-  right: -30px;
-}
-
-.owl-prev,
-.owl-next {
+/* .slides .slick-prev,
+.slides .slick-next {
   position: absolute;
-  top: 35px;
+  top: 50%;
+  z-index: 1;
 }
 
-.owl-prev span,
-.owl-next span {
-  font-size: 30px;
-  color: white;
-}
-.owl-theme .owl-nav [class*="owl-"]:hover {
-  background-color: transparent;
-}
-
-.carousel-wrap {
-  width: 96%;
-  margin: auto;
+.slides {
   position: relative;
 }
 
-.owl-dots {
-  display: none;
-}
+.slides .slick-prev,
+.slides .slick-next {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+} */

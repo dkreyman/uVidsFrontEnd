@@ -3,7 +3,7 @@ import AllVideosCarousel from "./AllVideosCarousel";
 import MyFavoritesCarousel from "./MyFavoritesCarousel";
 import PlayingVideo from "./PlayingVideo";
 import logo from "../assets/zype-logo-white.svg";
-import { fetchVideos } from "../../utils/api";
+import { fetchVideos } from "../utils/api";
 
 /**
  * Defines the main layout of the application.
@@ -14,8 +14,10 @@ import { fetchVideos } from "../../utils/api";
  */
 
 function VideosMain() {
-  const [videos, setVideos] = useState();
-  const [playingVideo, setPlayingVideo] = useState();
+  const [videos, setVideos] = useState(0);
+  const [favoriteVideos, setFavoriteVideos] = useState(0);
+  const [playingVideo, setPlayingVideo] = useState(0);
+
   useEffect(() => {
     const loadVideos = () => {
       const abortController = new AbortController();
@@ -30,7 +32,7 @@ function VideosMain() {
   }, []);
 
   useEffect(() => {
-    if (videos !== undefined) {
+    if (videos !== 0) {
       setPlayingVideo(videos["response"][0]);
     }
   }, [videos]);
@@ -44,17 +46,22 @@ function VideosMain() {
       <div className="container">
         <div className="row">
           <div className="col">
-            <PlayingVideo playingVideo={playingVideo} />
+            {playingVideo !== 0 && <PlayingVideo playingVideo={playingVideo} />}
           </div>
         </div>
         <div className="row ">
           <div className="col">
-            {videos ? <AllVideosCarousel videos={videos} /> : null}
+            {videos !== 0 && <AllVideosCarousel videos={videos} />}
           </div>
         </div>
         <div className="row ">
           <div className="col">
-            <MyFavoritesCarousel />
+            {
+              <MyFavoritesCarousel
+                favoriteVideos={favoriteVideos}
+                setPlayingVideo={setPlayingVideo}
+              />
+            }
           </div>
         </div>
       </div>

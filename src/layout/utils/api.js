@@ -28,7 +28,7 @@ async function fetchJson(url, options, onCancel) {
 }
 
 export async function fetchVideos(signal) {
-  const url = `${API_BASE_URL}/videos?page=2&per_page=4&app_key=${API_APP_KEY}`;
+  const url = `${API_BASE_URL}/videos?page=2&per_page=8&app_key=${API_APP_KEY}`;
   const options = {
     method: "GET",
     headers: { Accept: "application/json" },
