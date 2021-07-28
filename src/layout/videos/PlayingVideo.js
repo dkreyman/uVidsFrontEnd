@@ -19,17 +19,21 @@ function PlayingVideo(props) {
       [vid._id]: !hearted[vid._id],
     });
   };
+
+  let date = new Date(0);
+  date.setSeconds(props.playingVideo.duration); // specify value for SECONDS here
+  let timeString = date.toISOString().substr(15, 4);
   return (
     props.playingVideo !== undefined && (
       <div className="container">
         <div className="row">
-          {/* <div className="mt-5 col-sm-1"></div> */}
           <div className="mt-5 col-sm-12 col-md-8">
-            <div class="embed-responsive embed-responsive-16by9">
+            <div className="embed-responsive embed-responsive-16by9">
               <iframe
-                class="embed-responsive-item"
+                title={props.playingVideo.title}
+                className="embed-responsive-item"
                 src={`${API_BASE_URL}/embed/${props.playingVideo._id}.format?api_key=${API_PLAYER_KEY}`}
-                allowfullscreen
+                allowFullScreen
               ></iframe>
             </div>
           </div>
@@ -47,7 +51,7 @@ function PlayingVideo(props) {
 
                 <h4 className="mb-0 text-white">{props.playingVideo.title}</h4>
 
-                <small className="ml-1">5 Views - 04:200</small>
+                <small className="ml-1">1,651,008 Views - {timeString}</small>
               </div>
             </div>
             <div className="p-2 mt-3 gray">

@@ -13,7 +13,7 @@ import Slider from "react-slick";
 function MyFavoritesCarousel(props) {
   if (!props.favoriteVideos.length || props.favoriteVideos === undefined) {
     return (
-      <div class="container carousel-wrap">
+      <div className="container carousel-wrap">
         <div className="mt-3 mb-3 ">
           <p className="mb-0 border-bottom">Favorite Videos</p>
           <div className="container mt-3">
@@ -39,7 +39,7 @@ function MyFavoritesCarousel(props) {
     infinite: favoritesImg.length > 3,
   };
   return (
-    <div class="container carousel-wrap">
+    <div className="container carousel-wrap">
       <div className="mt-3 mb-3 ">
         <p className="mb-0 border-bottom">Favorite Videos</p>
       </div>

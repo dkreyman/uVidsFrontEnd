@@ -27,15 +27,16 @@ function AllVideosCarousel(props) {
   };
 
   return (
-    <div class="container carousel-wrap">
+    <div className="container carousel-wrap">
       <div className="mt-3 mb-3 ">
         <p className="mb-0 border-bottom">All Videos</p>
       </div>
       <Slider {...settings}>
         {imgs.map((res, i) => {
           return (
-            <div className="p-1">
+            <div key={i} className="p-1">
               <img
+                alt={props.videos.response[i]["title"]}
                 onClick={() => makePlaying(props.videos.response[i])}
                 width="260px"
                 height="150px"

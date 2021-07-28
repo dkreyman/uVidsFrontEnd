@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import AllVideosCarousel from "./AllVideosCarousel";
 import MyFavoritesCarousel from "./MyFavoritesCarousel";
 import PlayingVideo from "./PlayingVideo";
@@ -53,8 +53,8 @@ function VideosMain() {
 
   return (
     <div>
-      <nav class="navbar navbar-light">
-        <a class="navbar-brand p-1 ml-2" href="#">
+      <nav className="navbar navbar-light">
+        <a className="navbar-brand p-1 ml-2" href="/">
           <img src={logo} width="130" height="45" alt="" />
         </a>
       </nav>
