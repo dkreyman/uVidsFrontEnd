@@ -40,6 +40,11 @@ function VideosMain() {
   function updateFavoriteVids(newVid) {
     if (!favoriteVideos.includes(newVid)) {
       setFavoriteVideos([...favoriteVideos, newVid]);
+    } else {
+      console.log("newvid", newVid, "fav", favoriteVideos[0]);
+      setFavoriteVideos((favoriteVideos) =>
+        favoriteVideos.filter((vid) => vid._id !== newVid._id)
+      );
     }
   }
   function updatePlayingVid(vid) {

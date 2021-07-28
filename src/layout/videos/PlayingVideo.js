@@ -12,11 +12,11 @@ function PlayingVideo(props) {
   const API_PLAYER_KEY = process.env.REACT_APP_PLAYER_KEY;
   const [hearted, setHearted] = useState({});
 
-  const addFavorites = (vid) => {
+  const changeFavorites = (vid) => {
     props.updateFavoriteVids(vid);
     setHearted({
       ...hearted,
-      [vid._id]: true,
+      [vid._id]: !hearted[vid._id],
     });
   };
   return (
@@ -37,12 +37,11 @@ function PlayingVideo(props) {
             <div className="p-2 gray">
               <div>
                 <i
-                  onClick={() => addFavorites(props.playingVideo)}
-                  className="float-right mt-4"
+                  onClick={() => changeFavorites(props.playingVideo)}
                   className={
                     hearted[props.playingVideo._id]
-                      ? "fas fa-heart"
-                      : "far fa-heart"
+                      ? "fas fa-heart float-right mt-4"
+                      : "far fa-heart float-right mt-4"
                   }
                 ></i>
 
