@@ -22,7 +22,7 @@ function PlayingVideo(props) {
 
   let date = new Date(0);
   date.setSeconds(props.playingVideo.duration); // specify value for SECONDS here
-  let timeString = date.toISOString().substr(15, 4);
+  let timeString = date.toISOString().substr(14, 8);
   return (
     props.playingVideo !== undefined && (
       <div className="container">
