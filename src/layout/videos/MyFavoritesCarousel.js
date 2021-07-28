@@ -28,6 +28,10 @@ function MyFavoritesCarousel(props) {
     return res.thumbnails[0]["url"];
   });
 
+  const makePlaying = (img) => {
+    props.updatePlayingVid(img);
+  };
+
   const settings = {
     arrow: true,
     slidesToShow: 4,
@@ -41,11 +45,11 @@ function MyFavoritesCarousel(props) {
       </div>
       <Slider {...settings}>
         {console.log("happens")}
-        {favoritesImg.map((res) => {
-          console.log("happens2");
+        {favoritesImg.map((res, i) => {
           return (
             <div className="p-1 mb-2 float-left">
               <img
+                onClick={() => makePlaying(props.favoriteVideos[i])}
                 alt="thumbnail"
                 width="260px"
                 height="150px"

@@ -77,7 +77,11 @@ function VideosMain() {
         <div className="row ">
           <div className="col">
             {videos !== 0 && (
-              <MyFavoritesCarousel favoriteVideos={favoriteVideos} />
+              <MyFavoritesCarousel
+                favoriteVideos={favoriteVideos}
+                videos={videos}
+                updatePlayingVid={updatePlayingVid}
+              />
             )}
           </div>
         </div>
