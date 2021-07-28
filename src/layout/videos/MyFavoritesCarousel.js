@@ -11,7 +11,7 @@ import Slider from "react-slick";
  * @returns {JSX.Element}
  */
 function MyFavoritesCarousel(props) {
-  if (props.favoriteVideos === undefined) {
+  if (!props.favoriteVideos.length || props.favoriteVideos === undefined) {
     return (
       <div class="container carousel-wrap">
         <div className="mt-3 mb-3 ">
@@ -23,35 +23,35 @@ function MyFavoritesCarousel(props) {
       </div>
     );
   }
+
+  const favoritesImg = props.favoriteVideos.map((res) => {
+    return res.thumbnails[0]["url"];
+  });
+
   const settings = {
     arrow: true,
     slidesToShow: 4,
     slidesToScroll: 2,
+    infinite: favoritesImg.length > 3,
   };
-  const arr = [
-    "https://picsum.photos/640/480?pic=2",
-    "https://picsum.photos/640/480?pic=3",
-    "https://picsum.photos/640/480?pic=4",
-    "https://picsum.photos/640/480?pic=5",
-    "https://picsum.photos/640/480?pic=2",
-    "https://picsum.photos/640/480?pic=3",
-    "https://picsum.photos/640/480?pic=4",
-    "https://picsum.photos/640/480?pic=5",
-  ];
-  const imgs = props.favoriteVideos.response.map((res) => {
-    return res.thumbnails[0]["url"];
-  });
-  console.log(imgs);
   return (
     <div class="container carousel-wrap">
       <div className="mt-3 mb-3 ">
         <p className="mb-0 border-bottom">Favorite Videos</p>
       </div>
       <Slider {...settings}>
-        {imgs.map((res) => {
+        {console.log("happens")}
+        {favoritesImg.map((res) => {
+          console.log("happens2");
           return (
-            <div className="p-1">
-              <img width="260px" height="150px" length="100px" src={res} />
+            <div className="p-1 mb-2 float-left">
+              <img
+                alt="thumbnail"
+                width="260px"
+                height="150px"
+                length="100px"
+                src={res}
+              />
             </div>
           );
         })}

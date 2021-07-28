@@ -10,6 +10,9 @@ import React from "react";
 function PlayingVideo(props) {
   const API_BASE_URL = process.env.REACT_APP_BASE_URL;
   const API_PLAYER_KEY = process.env.REACT_APP_PLAYER_KEY;
+  const addFavorites = (vid) => {
+    props.updateFavoriteVids(vid);
+  };
   return (
     props.playingVideo !== undefined && (
       <div className="container">
@@ -27,7 +30,10 @@ function PlayingVideo(props) {
           <div className="mt-5 d-flex flex-column col-lg-4">
             <div className="p-2 gray">
               <div>
-                <i class="far fa-heart float-right mt-4"></i>
+                <i
+                  onClick={() => addFavorites(props.playingVideo)}
+                  class="far fa-heart float-right mt-4"
+                ></i>
 
                 <h4 className="mb-0 text-white">{props.playingVideo.title}</h4>
 

@@ -25,6 +25,7 @@ function AllVideosCarousel(props) {
   const makePlaying = (img) => {
     props.updatePlayingVid(img);
   };
+
   return (
     <div class="container carousel-wrap">
       <div className="mt-3 mb-3 ">

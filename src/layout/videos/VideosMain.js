@@ -15,7 +15,7 @@ import { fetchVideos } from "../utils/api";
 
 function VideosMain() {
   const [videos, setVideos] = useState(0);
-  const [favoriteVideos, setFavoriteVideos] = useState();
+  const [favoriteVideos, setFavoriteVideos] = useState([]);
   const [playingVideo, setPlayingVideo] = useState(0);
 
   useEffect(() => {
@@ -38,7 +38,9 @@ function VideosMain() {
   }, [videos]);
 
   function updateFavoriteVids(newVid) {
-    setFavoriteVideos([...favoriteVideos, newVid]);
+    if (!favoriteVideos.includes(newVid)) {
+      setFavoriteVideos([...favoriteVideos, newVid]);
+    }
   }
   function updatePlayingVid(vid) {
     setPlayingVideo(vid);
@@ -54,7 +56,12 @@ function VideosMain() {
       <div className="container">
         <div className="row">
           <div className="col">
-            {playingVideo !== 0 && <PlayingVideo playingVideo={playingVideo} />}
+            {playingVideo !== 0 && (
+              <PlayingVideo
+                playingVideo={playingVideo}
+                updateFavoriteVids={updateFavoriteVids}
+              />
+            )}
           </div>
         </div>
         <div className="row ">
@@ -70,10 +77,7 @@ function VideosMain() {
         <div className="row ">
           <div className="col">
             {videos !== 0 && (
-              <MyFavoritesCarousel
-                favoriteVideos={favoriteVideos}
-                updateFavoriteVids={updateFavoriteVids}
-              />
+              <MyFavoritesCarousel favoriteVideos={favoriteVideos} />
             )}
           </div>
         </div>
