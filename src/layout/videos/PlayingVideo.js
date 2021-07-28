@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 /**
  * Defines the main layout of the application.
@@ -10,8 +10,14 @@ import React from "react";
 function PlayingVideo(props) {
   const API_BASE_URL = process.env.REACT_APP_BASE_URL;
   const API_PLAYER_KEY = process.env.REACT_APP_PLAYER_KEY;
+  const [hearted, setHearted] = useState({});
+
   const addFavorites = (vid) => {
     props.updateFavoriteVids(vid);
+    setHearted({
+      ...hearted,
+      [vid._id]: true,
+    });
   };
   return (
     props.playingVideo !== undefined && (
@@ -32,7 +38,12 @@ function PlayingVideo(props) {
               <div>
                 <i
                   onClick={() => addFavorites(props.playingVideo)}
-                  class="far fa-heart float-right mt-4"
+                  className="float-right mt-4"
+                  className={
+                    hearted[props.playingVideo._id]
+                      ? "fas fa-heart"
+                      : "far fa-heart"
+                  }
                 ></i>
 
                 <h4 className="mb-0 text-white">{props.playingVideo.title}</h4>
