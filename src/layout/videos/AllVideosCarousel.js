@@ -19,9 +19,11 @@ function AllVideosCarousel(props) {
     slidesToScroll: 2,
   };
 
+  //get all video thumbnails
   const imgs = props.videos.response.map((res) => {
     return res.thumbnails[0]["url"];
   });
+  //update playing video on click
   const makePlaying = (img) => {
     props.updatePlayingVid(img);
   };

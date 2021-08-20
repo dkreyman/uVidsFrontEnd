@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import AllVideosCarousel from "./AllVideosCarousel";
 import MyFavoritesCarousel from "./MyFavoritesCarousel";
 import PlayingVideo from "./PlayingVideo";
-import logo from "../assets/zype-logo-white.svg";
 import { fetchVideos } from "../utils/api";
 
 /**
@@ -18,6 +17,7 @@ function VideosMain() {
   const [favoriteVideos, setFavoriteVideos] = useState([]);
   const [playingVideo, setPlayingVideo] = useState(0);
 
+  //fetch all videos from the api
   useEffect(() => {
     const loadVideos = () => {
       const abortController = new AbortController();
@@ -31,33 +31,35 @@ function VideosMain() {
     loadVideos();
   }, []);
 
+  //when videos are loaded set playing video to the first video
   useEffect(() => {
     if (videos !== 0) {
       setPlayingVideo(videos["response"][0]);
     }
   }, [videos]);
 
+  //if the video is not in favorites include it; if it is remove it.
   function updateFavoriteVids(newVid) {
     if (!favoriteVideos.includes(newVid)) {
       setFavoriteVideos([...favoriteVideos, newVid]);
     } else {
-      console.log("newvid", newVid, "fav", favoriteVideos[0]);
       setFavoriteVideos((favoriteVideos) =>
         favoriteVideos.filter((vid) => vid._id !== newVid._id)
       );
     }
   }
+
   function updatePlayingVid(vid) {
     setPlayingVideo(vid);
   }
 
   return (
     <div>
-      <nav className="navbar navbar-light">
+      {/* <nav className="navbar navbar-light">
         <a className="navbar-brand p-1 ml-2" href="/">
           <img src={logo} width="130" height="45" alt="" />
         </a>
-      </nav>
+      </nav> */}
       <div className="container">
         <div className="row">
           <div className="col">

@@ -10,6 +10,6 @@ For this project, I used React.js because I'm most familiar with it and for its 
 
 ## Live Demo
 
-[Zype](https://zypeexcercise.herokuapp.com/)
+[uVids]()
 
 @David Kreyman

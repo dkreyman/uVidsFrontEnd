@@ -13,15 +13,18 @@ function PlayingVideo(props) {
   const [hearted, setHearted] = useState({});
 
   const changeFavorites = (vid) => {
+    //updates state that carousel uses
     props.updateFavoriteVids(vid);
+    //changes state that heart icon uses
     setHearted({
       ...hearted,
       [vid._id]: !hearted[vid._id],
     });
   };
 
+  //video duration
   let date = new Date(0);
-  date.setSeconds(props.playingVideo.duration); // specify value for SECONDS here
+  date.setSeconds(props.playingVideo.duration);
   let timeString = date.toISOString().substr(14, 8);
   return (
     props.playingVideo !== undefined && (

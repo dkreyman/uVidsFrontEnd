@@ -24,10 +24,12 @@ function MyFavoritesCarousel(props) {
     );
   }
 
+  //Favorite video thumbnails
   const favoritesImg = props.favoriteVideos.map((res) => {
     return res.thumbnails[0]["url"];
   });
 
+  //update playing video on click
   const makePlaying = (img) => {
     props.updatePlayingVid(img);
   };
